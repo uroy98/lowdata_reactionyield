@@ -13,8 +13,8 @@ This repository contains code and datasets for our ICML 2026 submission on low-d
 
 ## How to run
 ```bash
-conda create -n icml26 python=3.10 -y
-conda activate icml26
+conda create -n lowdata_reactionyield python=3.10 -y
+conda activate lowdata_reactionyield
 pip install -r environment/requirements.txt
 python run_preprocessing.py
 python run_baselines_custom_preprocessing.py
