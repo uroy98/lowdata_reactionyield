@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.DS_Store
+
+# Data
+data/chem/raw/*.xlsx
+data/chem/processed/*.npy
+!data/chem/raw/README.md
+
+# Environments
+env/
+.venv/
+venv/
+*.env
+*.yml
+
+# Results
+results/
+!results/README.md
+
+# VSCode / Jupyter
+.vscode/
+.ipynb_checkpoints/
+
+# Other
+*.zip

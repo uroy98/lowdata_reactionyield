@@ -1,0 +1,9 @@
+# List of packages
+
+pandas
+numpy
+scikit-learn
+xgboost
+rdkit-pypi
+openpyxl
+matplotlib
