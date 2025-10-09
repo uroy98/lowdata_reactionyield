@@ -18,3 +18,4 @@ conda activate lowdata_reactionyield
 pip install -r environment/requirements.txt
 python run_preprocessing.py
 python run_baselines_custom_preprocessing.py
+python run_representation_baselines.py
