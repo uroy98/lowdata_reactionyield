@@ -2,7 +2,7 @@
 
 # Low-Data Reaction Yield Prediction
 
-This repository contains code and datasets for our ICML 2026 submission on low-data machine learning models for predicting reaction yields in micellar catalysis.
+This repository contains code and datasets for our low-data machine learning models for predicting reaction yields in micellar catalysis.
 
 ## Folder structure
 - `src/preprocessing/` — SMILES cleaning and feature generation  
