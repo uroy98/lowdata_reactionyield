@@ -5,6 +5,7 @@ from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.optimizers import Adam
 from sklearn.metrics import mean_squared_error, r2_score
 import xgboost as xgb
+import tensorflow as tf
 import numpy as np
 import random
 

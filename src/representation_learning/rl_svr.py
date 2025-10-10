@@ -16,6 +16,12 @@ def run_rl_svr():
     random.seed(42)
     tf.random.set_seed(42)
 
+    # Load preprocessed data
+    X_train = np.load("data/chem/processed/X_train.npy")
+    y_train = np.load("data/chem/processed/y_train.npy")
+    X_test_svr = np.load("data/chem/processed/X_test.npy")
+    y_test_svr = np.load("data/chem/processed/y_test.npy")    
+
     # 1. Autoencoder Model (Representation Learning)
     input_dim = X_train.shape[1]
     encoding_dim = 10  # Dimension of the latent representation
@@ -51,7 +57,7 @@ def run_rl_svr():
 
     # 3. Extract learned representations from the encoder
     X_train_encoded = encoder.predict(X_train)
-    X_test_encoded = encoder.predict(X_test_xgb)
+    X_test_encoded = encoder.predict(X_test_svr)
 
     # 3. Initialize the SVR model
     svr = SVR(kernel='rbf', C=100, gamma=0.01, epsilon=0.1)
@@ -63,9 +69,9 @@ def run_rl_svr():
     y_pred = svr.predict(X_test_encoded)
 
     # 4. Evaluate the model performance
-    mse = mean_squared_error(y_test_xgb, y_pred)
+    mse = mean_squared_error(y_test_svr, y_pred)
     rmse = np.sqrt(mse)
-    r2 = r2_score(y_test_xgb, y_pred)
+    r2 = r2_score(y_test_svr, y_pred)
 
     # print(f"Mean Squared Error (MSE): {mse}")
     # print(f"Root Mean Squared Error (RMSE): {rmse}")
