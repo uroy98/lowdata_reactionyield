@@ -5,6 +5,7 @@ from tensorflow.keras.optimizers import Adam
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.decomposition import PCA
+from sklearn.svm import SVR
 import numpy as np
 import random
 import tensorflow as tf
