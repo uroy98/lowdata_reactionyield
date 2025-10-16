@@ -32,10 +32,10 @@ VAL_SIZE    = 0.2
 # --------------------------
 # Load data
 # --------------------------
-X_train = np.load(os.path.join(DATA_DIR, "X_train.npy"))
-y_train = np.load(os.path.join(DATA_DIR, "y_train.npy"))
-X_test  = np.load(os.path.join(DATA_DIR, "X_test.npy"))
-y_test  = np.load(os.path.join(DATA_DIR, "y_test.npy"))
+X_train = np.load(os.path.join(DATA_DIR, "X_train.npy")).astype(np.float32)
+y_train = np.load(os.path.join(DATA_DIR, "y_train.npy")).astype(np.float32)
+X_test  = np.load(os.path.join(DATA_DIR, "X_test.npy")).astype(np.float32)
+y_test  = np.load(os.path.join(DATA_DIR, "y_test.npy")).astype(np.float32)
 
 # Split into numeric + fp (your preprocessing put numeric first, then 1024 fp)
 fp_dim = X_train.shape[1] - NUM_NUMERIC
