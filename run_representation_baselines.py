@@ -1,3 +1,7 @@
+# ==== Deterministic configuration ====
+from src.utils.set_deterministic import set_deterministic
+set_deterministic(42)
+
 from src.representation_learning.rl_gradient_boosting import run_rl_gradient_boosting
 from src.representation_learning.rl_xgboost import run_rl_xgboost
 from src.representation_learning.rl_random_forest import run_rl_random_forest

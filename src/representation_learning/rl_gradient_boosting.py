@@ -1,3 +1,7 @@
+# ==== Deterministic configuration ====
+from src.utils.set_deterministic import set_deterministic
+set_deterministic(42)
+
 import optuna
 from sklearn.model_selection import train_test_split, KFold, GridSearchCV
 from tensorflow.keras.models import Model

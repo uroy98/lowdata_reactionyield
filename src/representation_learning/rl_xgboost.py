@@ -1,3 +1,7 @@
+# ==== Deterministic configuration ====
+from src.utils.set_deterministic import set_deterministic
+set_deterministic(42)
+
 # Import necessary libraries
 from sklearn.model_selection import train_test_split, KFold
 from tensorflow.keras.models import Model
