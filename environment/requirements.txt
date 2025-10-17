@@ -7,3 +7,4 @@ xgboost
 rdkit-pypi
 openpyxl
 matplotlib
+tensorflow_lattice

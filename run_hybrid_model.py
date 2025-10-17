@@ -72,21 +72,36 @@ Xn_tr, Xn_va, Xf_tr, Xf_va, y_tr, y_va, t_tr, t_va = train_test_split(
 model = build_chem_iml(
     num_numeric=NUM_NUMERIC,
     fp_dim=fp_dim,
-    hidden_num=64,
-    hidden_fp=128,
-    fusion=128,
-    heads=HEADS,
-    dropout_num=0.1,
-    dropout_fp=0.1,
-    l2=1e-5
+    # hidden_num=64,
+    hidden_num=128,     # more capacity
+    # hidden_fp=128,
+    hidden_fp=256,      # more capacity
+    # fusion=128,
+    fusion=256,
+    # heads=HEADS,
+    heads=5,
+    # dropout_num=0.1,
+    dropout_num=0.05,   # less dropout
+    # dropout_fp=0.1,
+    dropout_fp=0.05,
+    # l2=1e-5
+    l2=1e-6             # weaker regularization
 )
 
-model.compile(optimizer=Adam(learning_rate=LR),
+# model.compile(optimizer=Adam(learning_rate=LR),
+#               loss=gaussian_nll_multihead(HEADS))
+
+model.compile(optimizer=Adam(learning_rate=5e-3),
               loss=gaussian_nll_multihead(HEADS))
 
+# callbacks = [
+#     EarlyStopping(monitor="val_loss", patience=40, restore_best_weights=True, verbose=1),
+#     ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=15, min_lr=1e-5, verbose=1)
+# ]
+
 callbacks = [
-    EarlyStopping(monitor="val_loss", patience=40, restore_best_weights=True, verbose=1),
-    ReduceLROnPlateau(monitor="val_loss", factor=0.5, patience=15, min_lr=1e-5, verbose=1)
+    EarlyStopping(monitor="val_loss", patience=80, restore_best_weights=True, verbose=1),
+    ReduceLROnPlateau(monitor="val_loss", factor=0.7, patience=25, min_lr=1e-5, verbose=1)
 ]
 
 history = model.fit(

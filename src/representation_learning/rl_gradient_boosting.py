@@ -64,6 +64,10 @@ def run_rl_gradient_boosting():
     X_train_encoded = encoder.predict(X_train)
     X_test_encoded = encoder.predict(X_test)
 
+    np.save("data/chem/processed/X_train_encoded.npy", X_train_encoded)
+    np.save("data/chem/processed/X_test_encoded.npy",  X_test_encoded)
+    encoder.save("src/models/autoencoder_encoder.h5")    
+
     def objective(trial):
         params = {
             'n_estimators': trial.suggest_int('n_estimators', 500, 1500),
